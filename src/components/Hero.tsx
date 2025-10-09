@@ -318,7 +318,7 @@ const Hero: React.FC<HeroProps> = () => {
             className="text-gray-400 max-w-2xl mx-auto"
             variants={fadeInUp}
           >
-            A passionate Software engineer with expertise in Java Programming, Java OOP's Database Management, and also proficient in Web Devlopment having built in clone websites.
+            A passionate Software engineer with expertise in Java Programming, Java OOP's Database Management, and also proficient in Web Development having built in clone websites.
         
           </motion.p>
         </motion.div>
@@ -326,5 +326,6 @@ const Hero: React.FC<HeroProps> = () => {
     </motion.section>
   );
 };
+
 
 export default Hero; 

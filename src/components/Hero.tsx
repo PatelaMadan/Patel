@@ -125,7 +125,7 @@ const Hero: React.FC<HeroProps> = () => {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4"
             variants={fadeInUp}
           >
-            A Full Stack Devloper who
+            A Full Stack Developer who
           </motion.h1>
           <motion.div 
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
@@ -329,3 +329,4 @@ const Hero: React.FC<HeroProps> = () => {
 
 
 export default Hero; 
+

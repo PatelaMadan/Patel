@@ -177,14 +177,14 @@ const Experience = () => {
 
   const experiences = [
     {
-      role: "Software Enginner Intern",
+      role: "Software Engineer Intern",
       company: "PointCross Life Science Pvt Ltd",
       period: "OCTOBER 2023 -  FEBRUARY 2024",
       achievements: [
        "Worked with Azure team to ensure the skills (Java,Sql) and also worked on EData validator client project.", 
 
      "Demonstrated strong self-motivation and initiative in learning new technologies. ",
-   "Contributed effectively to software development tasksin a professional environment.",
+   "Contributed effectively to software development tasks in a professional environment.",
       ]
     },
    
@@ -241,5 +241,6 @@ const Experience = () => {
     </motion.section>
   );
 };
+
 
 export default Experience; 

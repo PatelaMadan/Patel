@@ -31,10 +31,10 @@ const Navbar = () => {
   }, [scrolled]);
 
   const handleResumeDownload = () => {
-    const resumeUrl = '/resume/MADAN.pdf';
+    const resumeUrl = '/resume/MADANPATEL.pdf';
     const link = document.createElement('a');
     link.href = resumeUrl;
-    link.download = 'MADAN.pdf';
+    link.download = 'MADANPATEL.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -98,5 +98,6 @@ const Navbar = () => {
     </motion.nav>
   );
 };
+
 
 export default Navbar; 

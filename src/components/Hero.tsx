@@ -1,6 +1,7 @@
+'use client';
+
 import { motion, useMotionValue, useSpring, useTransform, useCallback } from 'framer-motion';
 import React, { useState } from 'react';
-import { fadeInUp, staggerContainer } from '../utils/animations';
 
 const Sparkle = ({ className = "", style = {}, delay = 0, size = "2px" }) => (
   <motion.div
@@ -46,17 +47,35 @@ const Hero: React.FC = () => {
 
   const handleMouseMove = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    const centerX = (event.clientX - rect.left) / rect.width - 0.5;
-    const centerY = (event.clientY - rect.top) / rect.height - 0.5;
+    const centerX = Math.max(-0.5, Math.min(0.5, (event.clientX - rect.left) / rect.width - 0.5));
+    const centerY = Math.max(-0.5, Math.min(0.5, (event.clientY - rect.top) / rect.height - 0.5));
     mouseX.set(centerX);
     mouseY.set(centerY);
   }, [mouseX, mouseY]);
 
   const handleMouseLeave = useCallback(() => {
-    setIsHovered(false);
     mouseX.set(0);
     mouseY.set(0);
   }, [mouseX, mouseY]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8 }
+    }
+  };
 
   return (
     <motion.section 
@@ -64,7 +83,7 @@ const Hero: React.FC = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      variants={staggerContainer}
+      variants={containerVariants}
     >
       {/* Background gradient effects */}
       <motion.div 
@@ -90,142 +109,28 @@ const Hero: React.FC = () => {
       />
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
-        {/* Hero Content - UPDATED WITH NEW INTRO */}
-        <motion.div className="text-center mb-16 lg:mb-24" variants={staggerContainer}>
+        {/* Hero Content */}
+        <motion.div className="text-center mb-16 lg:mb-24" variants={containerVariants}>
           <motion.p 
             className="text-lg sm:text-xl md:text-2xl mb-6 text-white/90 font-medium" 
-            variants={fadeInUp}
-            custom={0}
+            variants={itemVariants}
           >
             Hi! I'm <span className="text-purple-400 bg-purple-500/20 px-2 py-1 rounded-lg">Madan Patel</span>
           </motion.p>
           
           <motion.h1 
             className="text-4xl sm:text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-white via-purple-100 to-blue-100 bg-clip-text text-transparent leading-[0.9] tracking-tight"
-            variants={fadeInUp}
-            custom={1}
+            variants={itemVariants}
           >
             OGL Developer | Oracle Guided Learning Specialist
           </motion.h1>
           
           <motion.div 
             className="text-xl sm:text-2xl lg:text-3xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed"
-            variants={fadeInUp}
-            custom={2}
+            variants={itemVariants}
           >
             Dynamic Oracle Guided Learning (OGL) Developer transforming complex user experiences in Oracle applications. I design intuitive, step-by-step guides that streamline processes, minimize reliance on external documentation, and boost user adoption.
           </motion.div>
 
           <motion.p 
-            className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-16 italic bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10"
-            variants={fadeInUp}
-            custom={3}
-          >
-            "Guiding users to success, one step at a time."
-          </motion.p>
-        </motion.div>
-
-        {/* 3D Avatar - UNCHANGED */}
-        <motion.div 
-          className="flex justify-center mb-20 lg:mb-28"
-          variants={fadeInUp}
-          custom={4}
-          style={{ perspective: 1200 }}
-        >
-          <motion.div
-            className="relative w-44 h-44 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80"
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={handleMouseLeave}
-          >
-            {/* Outer glow ring */}
-            <motion.div 
-              className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-r from-purple-500/30 via-blue-500/20 to-purple-500/30 blur-xl shadow-2xl -z-10"
-              animate={{ 
-                scale: [1, 1.05, 1], 
-                opacity: [0.6, 0.8, 0.6] 
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            
-            {/* Optimized sparkles */}
-            {[
-              { top: '15%', left: '15%', size: '3px', delay: 0 },
-              { top: '75%', right: '15%', size: '2px', delay: 0.8 },
-              { bottom: '25%', left: '20%', size: '4px', delay: 1.6 },
-              { top: '40%', right: '25%', size: '3px', delay: 2.2 }
-            ].map((pos, i) => (
-              <Sparkle 
-                key={`sparkle-${i}`}
-                className={`absolute ${pos.top || ''} ${pos.left ? `left-[${pos.left}]` : ''} ${pos.right ? `right-[${pos.right}]` : ''} ${pos.bottom || ''}`}
-                style={{ 
-                  left: pos.left,
-                  right: pos.right,
-                  top: pos.top,
-                  bottom: pos.bottom
-                }}
-                size={pos.size} 
-                delay={pos.delay} 
-              />
-            ))}
-
-            {/* Main avatar container */}
-            <motion.div 
-              className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl ring-4 ring-white/20 bg-gradient-to-br from-white/10 via-transparent to-black/20 backdrop-blur-xl"
-              style={{ 
-                rotateX, 
-                rotateY, 
-                transformStyle: 'preserve-3d' 
-              }}
-              animate={floatingAnimation}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <img
-                src="/images/madan.jpg"
-                alt="Madan Patel"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&fit=crop&crop=face";
-                }}
-              />
-              
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
-                animate={{ opacity: [0.4, 0.6, 0.4] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
-          </motion.div>
-        </motion.div>
-
-        {/* Bio Section - UPDATED TITLE */}
-        <motion.div className="text-center max-w-4xl mx-auto px-4" variants={staggerContainer}>
-          <motion.h2 
-            className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent"
-            variants={fadeInUp}
-            custom={5}
-          >
-            Transforming Oracle User Experiences
-          </motion.h2>
-          
-          <motion.div 
-            className="text-lg sm:text-xl text-gray-200/90 leading-relaxed max-w-3xl mx-auto bg-white/5 rounded-3xl p-8 sm:p-10 backdrop-blur-md border border-white/10 shadow-2xl"
-            variants={fadeInUp}
-            custom={6}
-          >
-            <p className="mb-6">
-              Specializing in <span className="text-purple-400 font-semibold">Oracle Guided Learning (OGL)</span> to create seamless digital adoption experiences.
-            </p>
-            <p>
-              CGPA: <span className="text-green-400 font-mono text-lg">8.1</span> • 
-              Expert in digital adoption best practices for consistency, clarity, and reusability.
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
-    </motion.section>
-  );
-};
-
-export default Hero;
+            className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-16 italic bg-white/5 rounded-2xl p-6 backdrop-blur-sm bo

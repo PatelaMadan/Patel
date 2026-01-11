@@ -15,7 +15,7 @@ const SkillCard = ({ title, skills }: SkillCategory) => (
   <motion.div 
     className="bg-[#2A1B3D] rounded-xl p-6 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] transition-all duration-300"
     variants={fadeInUp}
-    whileHover="hover"
+   whileHover={{ scale: 1.02 }}
   >
     <motion.h3 
       className="text-xl font-semibold mb-4 text-purple-500"
@@ -232,4 +232,5 @@ const Experience = () => {
 };
 
 export default Experience;
+
 

@@ -7,7 +7,8 @@ interface Skill {
 }
 
 interface SkillCategory {
-  title: string;
+  title: string;point
+  
   skills: Skill[];
 }
 
@@ -176,6 +177,17 @@ const Experience = () => {
   };
 
   const experiences = [
+
+
+
+
+
+     {
+      role: "OGL DEVELOPER| ORACLE",
+      company: "ORACLE",
+      period: "DEC-2025|PRESENT",
+      
+    },
     {
       role: "Software Engineer Intern",
       company: "PointCross Life Science Pvt Ltd",
@@ -187,6 +199,7 @@ const Experience = () => {
    "Contributed effectively to software development tasks in a professional environment.",
       ]
     },
+   
    
   ];
 
@@ -244,3 +257,4 @@ const Experience = () => {
 
 
 export default Experience; 
+

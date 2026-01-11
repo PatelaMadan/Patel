@@ -292,14 +292,14 @@ const Hero: React.FC<HeroProps> = () => {
             className="text-gray-400 mb-4"
             variants={fadeInUp}
           >
-            Recent B.E graduate in Information Science and Engineering at{' '}
+            OGL Developer  | Transforming User Experiences Through Guided Learning{' '}
             <motion.a 
               href="#" 
               className="text-blue-400 hover:text-blue-300 relative"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Don Bosco Institute of Technology
+             Oracle
               <motion.span
                 className="absolute inset-0 bg-blue-400/20 blur-sm -z-10"
                 animate={{
@@ -318,7 +318,7 @@ const Hero: React.FC<HeroProps> = () => {
             className="text-gray-400 max-w-2xl mx-auto"
             variants={fadeInUp}
           >
-            A passionate Software engineer with expertise in Java Programming, Java OOP's Database Management, and also proficient in Web Development having built in clone websites.
+            A passionate Software engineer Built step-by-step guides for complex Oracle application processes, reducing dependency on external documentation and Followed best practices for digital adoption, ensuring consistency, clarity, and reusability of OGL assets.
         
           </motion.p>
         </motion.div>
@@ -329,4 +329,5 @@ const Hero: React.FC<HeroProps> = () => {
 
 
 export default Hero; 
+
 

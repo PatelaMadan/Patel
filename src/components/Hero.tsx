@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
       viewport={{ once: true, amount: 0.3 }}
       variants={staggerContainer}
     >
-      {/* Background gradient effects - FIXED */}
+      {/* Background gradient effects */}
       <motion.div 
         className="absolute inset-0 bg-gradient-to-r from-purple-600/15 via-transparent to-blue-600/15"
         animate={{ 
@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       
-      {/* Central glow - FIXED gradient-radial */}
+      {/* Central glow */}
       <motion.div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 sm:w-[500px] sm:h-[500px] bg-gradient-to-r from-purple-600/20 via-blue-600/10 to-purple-600/20 rounded-full blur-3xl"
         animate={{
@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
       />
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
-        {/* Hero Content */}
+        {/* Hero Content - UPDATED WITH NEW INTRO */}
         <motion.div className="text-center mb-16 lg:mb-24" variants={staggerContainer}>
           <motion.p 
             className="text-lg sm:text-xl md:text-2xl mb-6 text-white/90 font-medium" 
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
             variants={fadeInUp}
             custom={1}
           >
-            Full Stack Developer
+            OGL Developer | Oracle Guided Learning Specialist
           </motion.h1>
           
           <motion.div 
@@ -113,14 +113,7 @@ const Hero: React.FC = () => {
             variants={fadeInUp}
             custom={2}
           >
-            Crafting experiences with{' '}
-            <span className="text-purple-400 font-semibold bg-gradient-to-r from-purple-500/30 to-blue-500/30 px-3 py-2 rounded-xl">
-              Precision
-            </span>{' '}
-            and deploying with{' '}
-            <span className="text-purple-400 font-semibold bg-gradient-to-r from-purple-500/30 to-blue-500/30 px-3 py-2 rounded-xl">
-              Passion
-            </span>
+            Dynamic Oracle Guided Learning (OGL) Developer transforming complex user experiences in Oracle applications. I design intuitive, step-by-step guides that streamline processes, minimize reliance on external documentation, and boost user adoption.
           </motion.div>
 
           <motion.p 
@@ -128,11 +121,11 @@ const Hero: React.FC = () => {
             variants={fadeInUp}
             custom={3}
           >
-            "If the code doesn't impress you, what else can?"
+            "Guiding users to success, one step at a time."
           </motion.p>
         </motion.div>
 
-        {/* 3D Avatar - ALL BUGS FIXED */}
+        {/* 3D Avatar - UNCHANGED */}
         <motion.div 
           className="flex justify-center mb-20 lg:mb-28"
           variants={fadeInUp}
@@ -155,7 +148,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
             
-            {/* Optimized sparkles - 4 instead of 18 */}
+            {/* Optimized sparkles */}
             {[
               { top: '15%', left: '15%', size: '3px', delay: 0 },
               { top: '75%', right: '15%', size: '2px', delay: 0.8 },
@@ -188,7 +181,6 @@ const Hero: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              {/* Image with fallback */}
               <img
                 src="/images/madan.jpg"
                 alt="Madan Patel"
@@ -198,7 +190,6 @@ const Hero: React.FC = () => {
                 }}
               />
               
-              {/* Gradient overlay */}
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
                 animate={{ opacity: [0.4, 0.6, 0.4] }}
@@ -208,14 +199,14 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Bio Section - Cleaned & Consolidated */}
+        {/* Bio Section - UPDATED TITLE */}
         <motion.div className="text-center max-w-4xl mx-auto px-4" variants={staggerContainer}>
           <motion.h2 
             className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent"
             variants={fadeInUp}
             custom={5}
           >
-            OGL Developer at Oracle
+            Transforming Oracle User Experiences
           </motion.h2>
           
           <motion.div 
@@ -224,12 +215,11 @@ const Hero: React.FC = () => {
             custom={6}
           >
             <p className="mb-6">
-              Transforming complex Oracle application processes into{' '}
-              <span className="text-purple-400 font-semibold">intuitive guided learning experiences</span>.
+              Specializing in <span className="text-purple-400 font-semibold">Oracle Guided Learning (OGL)</span> to create seamless digital adoption experiences.
             </p>
             <p>
               CGPA: <span className="text-green-400 font-mono text-lg">8.1</span> • 
-              Following digital adoption best practices for consistency, clarity, and reusability.
+              Expert in digital adoption best practices for consistency, clarity, and reusability.
             </p>
           </motion.div>
         </motion.div>

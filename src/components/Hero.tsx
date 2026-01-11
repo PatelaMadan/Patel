@@ -132,7 +132,43 @@ const Hero: React.FC = () => {
             Dynamic Oracle Guided Learning (OGL) Developer transforming complex user experiences in Oracle applications. I design intuitive, step-by-step guides that streamline processes, minimize reliance on external documentation, and boost user adoption.
           </motion.div>
 
-          <motion.p 
+       <motion.p 
+  className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-16 italic bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10"
+  variants={itemVariants}
+>
+  "Building guided experiences that make complex Oracle applications intuitive and accessible."
+</motion.p>
+
+{/* Add CTA buttons + closing tags */}
+<motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center" variants={itemVariants}>
+  <a 
+    href="/MadanPatel_Resume.pdf" 
+    download 
+    className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300 text-lg"
+  >
+    Download Resume
+  </a>
+  <a 
+    href="#contact" 
+    className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-lg"
+  >
+    Get In Touch
+  </a>
+</motion.div>
+</motion.div>
+</div>
+
+{/* Sparkles */}
+{Array.from({ length: 12 }).map((_, i) => (
+  <Sparkle key={i} className="hidden lg:block" delay={i * 0.2} />
+))}
+</motion.section>
+);
+};
+
+export default Hero;
+ 
             className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-16 italic bg-white/5 rounded-2xl p-6 backdrop-blur-sm bo
+
 
 

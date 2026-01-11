@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import { motion, useMotionValue, useSpring, useTransform, useCallback } from 'framer-motion';
 import React, { useState } from 'react';
@@ -169,6 +169,7 @@ const Hero: React.FC = () => {
 export default Hero;
  
             className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-16 italic bg-white/5 rounded-2xl p-6 backdrop-blur-sm bo
+
 
 
 

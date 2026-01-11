@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   
   const mouseX = useMotionValue(0);
-  // const mouseY = useMotionValue(0);
+ 
   const springConfig = { damping: 20, stiffness: 200 };
 
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [12, -12]), springConfig);
@@ -134,4 +134,5 @@ const Hero: React.FC = () => {
 
           <motion.p 
             className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-16 italic bg-white/5 rounded-2xl p-6 backdrop-blur-sm bo
+
 

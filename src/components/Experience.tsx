@@ -162,10 +162,10 @@ const Experience = () => {
       company: "Oracle",
       period: "Dec 2025 - Present",
       achievements: [
-        "Developing Oracle GoldenGate for real-time data replication across hybrid environments.",
-        "Leading cloud migration projects from on-premise to Oracle Cloud Infrastructure.",
-        "Optimizing PL/SQL procedures for high-performance database operations.",
-        "Collaborating with cross-functional teams on enterprise ERP solutions."
+        "OGL Developer at Oracle | Transforming User Experiences Through Guided Learning.",
+        "Built step-by-step guides for complex Oracle application processes, reducing dependency on external documentation and training.",
+        "Performed testing and validation of guided learning flows to ensure accuracy, usability, and seamless integration with Oracle applications.",
+        "Followed best practices for digital adoption, ensuring consistency, clarity, and reusability of OGL assets."
       ]
     },
     {
@@ -232,3 +232,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
